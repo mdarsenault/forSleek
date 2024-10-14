@@ -16,6 +16,7 @@ export class DnDCharacter {
     this.charisma = DnDCharacter.generateAbilityScore();
     this.hitpoints = 10 + DnDCharacter.getModifierFor(this.constitution);
   }
+
   /* 
    * The ability scores are the sum of the top 3 values of 4 rolls of a 6-sided die.
    * The range of ability scores is 3-18, inclusive, but not all values are equally 
@@ -33,6 +34,7 @@ export class DnDCharacter {
     
     return rolls[1] + rolls[2] + rolls[3];
   }
+  
   // Note that "round down" for neg numbers increases their magnitude (more negative)
   public static getModifierFor(abilityValue: number): number {
     return Math.floor((abilityValue - 10) / 2);
